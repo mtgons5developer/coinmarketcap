@@ -5,14 +5,13 @@ require "google_drive"
 def crypto
 
 session = GoogleDrive::Session.from_config("client_secret.json")
-ws = session.spreadsheet_by_key("1b4dE5cIL5uU73NziU8XTjcNttv1jA9w17-Vo_Kqc6Hg").worksheets[0]
+ws = session.spreadsheet_by_key("TARGET SHEET ID HERE").worksheets[0]
 
 $nx = 2
 
 File.open("URL_Link.txt", "r") do |f|
   
   f.each_line do |line|  	
-	#html = Nokogiri::HTML(open("Steve-Jobs.html"))
 	html = Nokogiri::HTML(open(line))
 
 	html.css('.price').each do |data|  
